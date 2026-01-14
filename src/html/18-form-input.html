@@ -13,36 +13,93 @@
   <body style="margin: 50px">
     <div class="go-index"><a href="/index.html">Index로 이동</a></div>
     <h1>폼(input) 요소</h1>
-    <form action="/" method="post" id="bootcamp">
-      <input type="email" name="" id="" />
-    </form>
-    <button type="submit" form="bootcamp">전송</button>
 
     <!-- form 요소 안에 submit 버튼이 있는 경우 -->
     <form action="/" method="post" id="likelion">
-      <input type="email" name="" id="" />
+      <input type="email" name="yourEmail" id="yourEmail" pattern="[A-Za-z0-9!#$%&'*+/=?^_`{|}~.@-]+" title="영어 대소문자, 숫자, 특수문자만 입력하세요." />
       <button type="submit">전송</button>
     </form>
 
     <!-- form 요소 밖에 submit 버튼이 있는 경우 (id, form 속성으로 연결) -->
     <!-- HTML5에 새롭게 추가된 사용 방식 -->
+    <!-- type 속성의 값을 url로 지정하면 입력 값은 이메일 형식을 유지해야 함. -->
     <form action="/" method="post" id="bootcamp">
-      <input type="email" name="" id="" />
+      <input type="url" form="bootcamp" name="yourSNS" id="yourSNS" />
       <button type="submit" form="bootcamp">전송</button>
     </form>
     <!-- fieldset과 legend 요소로 연관성 있는 폼 서식을 그룹화 시킬 경우 -->
+    <!-- label 요소를 사용하요 입력 서식에 이름 지정하기 -->
+    <!-- 모든 폼 서식은 1대1로 대응되는 접근 가능한 이름을 가져야 함. -->
+    <!-- required 속성을 사용하여 필수 입력 서식임을 명시 할 수 있음. -->
+    <!-- placeholder 속성을 사용하여 입력 서식의 입력 값의 힌트를 제공 할 수 있음. -->
+    <!--  -->
+    <!-- type="submit" => 폼 정보 전송 -->
+    <!-- pattern 속성을 사용하여 입력 란에 입력 형식을 제한 할 수 있음. -->
     <form action="/">
       <fieldset>
-        <legend>사용자 정보</legend>
+        <legend>고객 정보</legend>
+        <!-- 명시적인 레이블링 -->
         <div>
-          <label for="name">이름</label>
-          <input type="text" id="name" />
+          <label for="userName">성명</label>
+          <input type="text" name="userName" id="userName" required />
         </div>
+
         <div>
-          <label for="password">암호</label>
-          <input type="password" id="password" />
+          <label for="userEmail">이메일</label>
+          <input type="email" name="userEmail" id="userEmail" required placeholder="guest@likelion.net" />
         </div>
+        <!-- 암묵적인 레이블링 -->
+        <div>
+          <label>
+            암호
+            <input type="password" name="userPwd" required placeholder="6자리 이하" />
+          </label>
+        </div>
+        <input type="reset" value="초기화" />
+        <input type="submit" value="전송" />
       </fieldset>
     </form>
+    <hr />
+    <!-- 다양한 입력 서식 -->
+    <!-- 이미지 버튼 (submit) -->
+    <div><input type="image" src="/src/assets/cart/icon-cart.svg" alt="장바구니" /></div>
+    <!-- 체크 박스 -->
+    <fieldset>
+      <div>
+        <input checked type="checkbox" name="frontend" id="html" value="html" />
+        <label for="HTML">HTML</label>
+      </div>
+      <div>
+        <input type="checkbox" name="frontend" id="css" value="css" />
+        <label for="css">CSS</label>
+      </div>
+      <div>
+        <input type="checkbox" name="frontend" id="javascript" value="javascript" />
+        <label for="javascript">JavaScript</label>
+      </div>
+    </fieldset>
+    <!-- 라디오 버튼 -->
+    <fieldset>
+      <legend>성별</legend>
+      <div>
+        <input checked type="radio" name="gender" id="male" />
+        <label for="male">남성</label>
+      </div>
+
+      <div>
+        <input type="radio" name="gender" id="female" />
+        <label for="male">여성</label>
+      </div>
+    </fieldset>
+    <!-- 색상 입력 선택 -->
+    <div>
+      <label for="forground">글자색</label>
+      <input type="color" name="forground" id="forground" />
+    </div>
+    <!-- 날짜 또는 시간 입력 서식 -->
+    <div>
+      <label for="startDay">출발일</label>
+      <input type="datetime-local" name="startDay" id="startDay" />
+    </div>
   </body>
 </html>
